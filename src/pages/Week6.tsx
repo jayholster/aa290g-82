@@ -1,10 +1,21 @@
 import WeekLayout from "@/components/layout/WeekLayout";
+
+import WeekLayout from "@/components/layout/WeekLayout";
+
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Atom,
   Binary,
+
+  ChevronLeft,
+  ChevronRight,
+
   CircuitBoard,
   ExternalLink,
   Film,
@@ -21,6 +32,63 @@ const Week6 = () => {
   return (
     <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
       <section className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+  return (
+    <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
+      <section className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+
+  const prevWeek = weekNumber > 1 ? weekNumber - 1 : null;
+  const nextWeek = weekNumber < 15 ? weekNumber + 1 : null;
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header title={title} subtitle="AA290G: Creating & Learning with AI" dueDate={dueDate} />
+
+      <main className="relative pb-20">
+        <div className="absolute inset-x-0 top-0 h-[520px] bg-gradient-to-b from-primary/20 via-background to-background -z-10" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 space-y-16">
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-6 md:p-10">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div className="space-y-2">
+                    <Badge variant="outline" className="rounded-full px-4 py-1 text-xs tracking-[0.28em] uppercase">
+                      {title}
+                    </Badge>
+                    <p className="text-sm text-ink-muted">AA290G: Creating & Learning with AI · {dueDate}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {prevWeek && (
+                      <Button variant="outline" asChild className="rounded-full px-6">
+                        <Link to={`/week${prevWeek}`} className="flex items-center gap-2">
+                          <ChevronLeft className="h-4 w-4" />
+                          Week {prevWeek}
+                        </Link>
+                      </Button>
+                    )}
+                    <Button variant="outline" asChild className="rounded-full px-6">
+                      <Link to="/" className="flex items-center gap-2">
+                        <ExternalLink className="h-4 w-4" />
+                        Course Home
+                      </Link>
+                    </Button>
+                    {nextWeek && (
+                      <Button variant="default" asChild className="rounded-full px-6">
+                        <Link to={`/week${nextWeek}`} className="flex items-center gap-2">
+                          Week {nextWeek}
+                          <ChevronRight className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+
+
             <Card className="rounded-3xl border border-white/40 bg-card/80 shadow-lg shadow-primary/10 backdrop-blur">
               <CardContent className="p-8 space-y-5">
                 <div className="flex items-center gap-3 text-primary">
@@ -199,7 +267,50 @@ const Week6 = () => {
             </Card>
           </section>
 
+
     </WeekLayout>
+
+
+    </WeekLayout>
+
+          <section>
+            <div className="glass-panel rounded-[32px] px-6 py-5">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                {prevWeek ? (
+                  <Button variant="outline" asChild>
+                    <Link to={`/week${prevWeek}`} className="flex items-center gap-2">
+                      <ChevronLeft className="w-4 h-4" />
+                      Week {prevWeek}
+                    </Link>
+                  </Button>
+                ) : (
+                  <span />
+                )}
+
+                <Button asChild>
+                  <Link to="/" className="flex items-center gap-2">
+                    <ExternalLink className="w-4 h-4" />
+                    Back to Course Home
+                  </Link>
+                </Button>
+
+                {nextWeek ? (
+                  <Button variant="outline" asChild>
+                    <Link to={`/week${nextWeek}`} className="flex items-center gap-2">
+                      Week {nextWeek}
+                      <ChevronRight className="w-4 h-4" />
+                    </Link>
+                  </Button>
+                ) : (
+                  <span />
+                )}
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
   );
 };
 

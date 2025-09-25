@@ -1,4 +1,13 @@
+
 import WeekLayout from "@/components/layout/WeekLayout";
+
+
+import WeekLayout from "@/components/layout/WeekLayout";
+
+import { Link } from "react-router-dom";
+import Header from "@/components/Header";
+
+
 import ReasoningModelsComparison from "@/components/ReasoningModelsComparison";
 import ShowdownPrompts from "@/components/ShowdownPrompts";
 import { Button } from "@/components/ui/button";
@@ -11,8 +20,65 @@ const Week2 = () => {
   const title = "Week 2: Text-Based AI Models";
   const dueDate = "Sun Sep 7, 11:59 PM";
   return (
+
     <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
       <section>
+
+
+    <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
+      <section>
+
+    <div className="min-h-screen bg-background">
+      <Header title={title} subtitle="AA290G: Creating & Learning with AI" dueDate={dueDate} />
+
+      <main className="relative pb-20">
+        <div className="absolute inset-x-0 top-0 h-[520px] bg-gradient-to-b from-primary/15 via-background to-background -z-10" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 space-y-16">
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-6 md:p-8">
+                <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                  <div className="space-y-2">
+                    <Badge variant="outline" className="text-xs uppercase tracking-[0.2em]">
+                      {title}
+                    </Badge>
+                    <p className="text-sm text-ink-muted">
+                      AA290G: Creating & Learning with AI · {dueDate}
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    {prevWeek && (
+                      <Button variant="outline" asChild className="rounded-full px-6">
+                        <Link to={`/week${prevWeek}`} className="flex items-center gap-2">
+                          <ChevronLeft className="h-4 w-4" />
+                          Week {prevWeek}
+                        </Link>
+                      </Button>
+                    )}
+                    <Button variant="outline" asChild className="rounded-full px-6">
+                      <Link to="/" className="flex items-center gap-2">
+                        <ExternalLink className="h-4 w-4" />
+                        Course Home
+                      </Link>
+                    </Button>
+                    {nextWeek && (
+                      <Button variant="default" asChild className="rounded-full px-6">
+                        <Link to={`/week${nextWeek}`} className="flex items-center gap-2">
+                          Week {nextWeek}
+                          <ChevronRight className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section>
+
+
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
               <CardContent className="p-0">
                 <ReasoningModelsComparison />
@@ -135,6 +201,45 @@ const Week2 = () => {
                   </p>
                 </div>
 
+
+
+                <Card className="task-card-accent">
+
+                <Card className="border border-border/60 bg-background/90 backdrop-blur">
+
+                  <CardContent className="p-8 space-y-6">
+                    <h3 className="text-2xl font-medium text-foreground">Data Analysis Prompt</h3>
+                    <div className="rounded-2xl border border-border/40 bg-muted/40 p-6">
+                      <p className="text-muted-foreground leading-relaxed mb-4">
+                        Here's a dataset from a class activity where 6 groups ranked responses from ChatGPT Instant, Claude,
+                        Gemini 2.5, and ChatGPT Extension across multiple prompts. Analyze it by:
+                      </p>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Calculating how often each tool placed 1st, 2nd, 3rd, or 4th overall</li>
+                        <li>• Creating a summary table that shows average rank per tool</li>
+                        <li>• Identifying which prompts had the most disagreement across groups (highest variance in rankings)</li>
+                        <li>
+                          • Giving a short narrative on patterns: e.g., did one tool win more in science prompts vs analogy prompts?
+                        </li>
+                        <li>• Visualizing the results (bar charts for average rank, heatmap for tool performance across prompts)</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-10 space-y-10">
+                <div className="text-center space-y-4">
+                  <h2 className="text-4xl font-light text-foreground">Extended Tools</h2>
+                  <p className="text-lg text-ink-muted">
+                    Explore advanced reasoning capabilities for specialized tasks.
+                  </p>
+                </div>
+
                 <div className="grid gap-8 lg:grid-cols-2">
                   <Card className="border border-border/60 bg-background/90 backdrop-blur">
                     <CardContent className="p-8 space-y-6">
@@ -223,7 +328,47 @@ const Week2 = () => {
               </CardContent>
             </Card>
           </section>
+
     </WeekLayout>
+
+
+    </WeekLayout>
+
+        </div>
+      </main>
+
+      <footer className="border-t border-border/60 bg-background/80 py-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between px-6">
+          <div className="flex-1">
+            {prevWeek && (
+              <Link to={`/week${prevWeek}`}>
+                <Button variant="outline" className="gap-2 rounded-full">
+                  <ChevronLeft className="w-4 h-4" />
+                  Week {prevWeek}
+                </Button>
+              </Link>
+            )}
+          </div>
+          <Link to="/">
+            <Button variant="ghost" className="rounded-full">
+              Course Home
+            </Button>
+          </Link>
+          <div className="flex flex-1 justify-end">
+            {nextWeek && (
+              <Link to={`/week${nextWeek}`}>
+                <Button variant="outline" className="gap-2 rounded-full">
+                  Week {nextWeek}
+                  <ChevronRight className="w-4 h-4" />
+                </Button>
+              </Link>
+            )}
+          </div>
+        </div>
+      </footer>
+    </div>
+
+
   );
 };
 
