@@ -78,9 +78,9 @@ export default function TaskChecklist() {
         </Badge>
       </div>
       
-      <div className="grid gap-4">
+      <div className="task-grid">
         {taskItems.map((item, index) => (
-          <Card key={index} className="border border-border hover:shadow-sm transition-shadow">
+          <Card key={index} className="task-card transition-transform duration-200 hover:-translate-y-0.5">
             <CardContent className="p-4">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex-1">
@@ -95,7 +95,7 @@ export default function TaskChecklist() {
                     variant="outline"
                     size="sm"
                     onClick={() => copyUrl(item.url)}
-                    className="flex items-center gap-1"
+                    className="flex items-center gap-1 rounded-full"
                   >
                     <Copy className="w-3 h-3" />
                     {copiedUrl === item.url ? "Copied!" : "Copy URL"}
@@ -104,6 +104,7 @@ export default function TaskChecklist() {
                     variant="accent"
                     size="sm"
                     asChild
+                    className="rounded-full"
                   >
                     <a
                       href={item.url}
@@ -123,7 +124,7 @@ export default function TaskChecklist() {
       </div>
 
 
-      <div className="bg-muted rounded-lg p-4">
+      <div className="task-card-accent">
         <h4 className="font-semibold text-ink mb-3">What to submit (single PDF or DOCX):</h4>
         <div className="text-sm text-ink-muted space-y-2">
           <p><strong>8 screenshots</strong> (one per tool): your logged-in home/dashboard for each.</p>
