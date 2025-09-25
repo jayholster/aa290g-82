@@ -22,6 +22,7 @@ export default function Header({ title, subtitle, dueDate }: HeaderProps) {
             variant="secondary"
             className="border border-white/25 bg-white/10 px-4 py-1.5 text-white/90 backdrop-blur"
 
+
       <div className="absolute inset-0 bg-gradient-to-br from-[#041E42] via-[#0B2C6F] to-[#003865]" />
       <div className="absolute inset-0 penn-gradient opacity-80" />
       <div className="absolute -top-32 right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
@@ -32,6 +33,7 @@ export default function Header({ title, subtitle, dueDate }: HeaderProps) {
           <Badge
             variant="secondary"
             className="bg-white/10 text-primary-foreground border border-white/20 px-4 py-1.5"
+
 
           >
             Penn State University
@@ -46,6 +48,7 @@ export default function Header({ title, subtitle, dueDate }: HeaderProps) {
               <Calendar className="h-3 w-3" />
               Due: {dueDate}
             </Badge>
+
 
               className="flex items-center gap-2 bg-white/15 text-primary-foreground border border-white/20 px-4 py-1.5"
             >
@@ -63,6 +66,7 @@ export default function Header({ title, subtitle, dueDate }: HeaderProps) {
             <p className="text-xl text-primary-foreground/85 max-w-2xl md:max-w-3xl">
               {subtitle}
             </p>
+
 
           )}
         </div>

@@ -1,8 +1,11 @@
+import WeekLayout from "@/components/layout/WeekLayout";
+
 
 import WeekLayout from "@/components/layout/WeekLayout";
 
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,8 +13,10 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   Calendar,
 
+
   ChevronLeft,
   ChevronRight,
+
 
   ExternalLink,
   FileText,
@@ -41,6 +46,7 @@ const Week5 = () => {
                   <p className="text-lg text-ink-muted max-w-3xl">
                     Moving generative AI from making frames to making worlds
                   </p>
+
                 </div>
 
                 <Card className="border border-border/60 bg-background/90 backdrop-blur max-w-4xl mx-auto">
@@ -114,6 +120,82 @@ const Week5 = () => {
                 <div className="space-y-4">
                   <h2 className="text-4xl font-light text-foreground">Game Worlds</h2>
                 </div>
+
+
+                </div>
+
+                <Card className="border border-border/60 bg-background/90 backdrop-blur max-w-4xl mx-auto">
+                  <CardContent className="space-y-6 p-8">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                        <Globe className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-medium text-foreground">DeepMind's Genie 3</h3>
+                        <p className="text-sm text-muted-foreground">Interactive world generation in action</p>
+                      </div>
+                    </div>
+
+                    <div className="aspect-video overflow-hidden rounded-xl border border-border/20">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src="https://www.youtube.com/embed/ugoR9GfEHQk?si=N6stAwwhhTOe-PMN"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+
+                    <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
+                      <p>
+                        World models move generative AI from making frames (images/video) to making worlds (coherent, explorable
+                        environments), enabling agents—and artists—to act, test, and learn inside simulations before touching
+                        reality. These are generative AI systems that learn an internal simulator of an environment—its objects,
+                        physics, and causal dynamics—and then use that simulator to predict and render what happens next.
+                      </p>
+                      <p>
+                        Runway frames this as building an internal representation that can simulate future events, a step toward
+                        "general world models" for video and interactive media.
+                        <a href="https://runwayml.com" target="_blank" rel="noopener noreferrer" className="ml-1 text-primary hover:underline">
+                          Runway
+                        </a>
+                      </p>
+                      <p>
+                        DeepMind's Genie 3 illustrates the idea: from a text prompt, it generates persistent, interactive 3D
+                        worlds that run in real time, with improved temporal consistency over prior versions and enough memory to
+                        keep track of objects and layout as you move around—useful for training agents or prototyping virtual
+                        experiences.
+                        <a
+                          href="https://deepmind.google/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="ml-1 text-primary hover:underline"
+                        >
+                          Google DeepMind
+                        </a>
+                      </p>
+                      <p>
+                        Researchers argue true video world models should be causal, interactive, persistent, real-time, and
+                        physically accurate; progress on these fronts is why world models are discussed as a bridge from today's
+                        text/video generators to embodied, decision-making systems. Sort of like the holodeck on Star Trek.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-10 space-y-12">
+                <div className="space-y-4">
+                  <h2 className="text-4xl font-light text-foreground">Game Worlds</h2>
+                </div>
+
 
                 <div className="mx-auto max-w-4xl space-y-8">
                   <div className="overflow-hidden rounded-2xl border border-border/40">
@@ -190,6 +272,7 @@ const Week5 = () => {
                       </div>
                     </CardContent>
                   </Card>
+
                 </div>
               </CardContent>
             </Card>
@@ -494,6 +577,291 @@ const Week5 = () => {
 
           <section>
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-10 space-y-12">
+                <div className="space-y-4">
+                  <h2 className="text-4xl font-light text-foreground">Storytelling Tools</h2>
+                  <p className="text-lg text-ink-muted max-w-2xl">Essential tools for AI-powered video creation and editing</p>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Play className="w-4 h-4 text-primary" />
+                        Kling AI
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Keyframe workflow with DeepSeek prompt assistance for smooth video transitions
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src={klingInterface} alt="Kling AI interface" className="h-auto w-full" />
+                      </div>
+                      <Button variant="outline" size="sm" className="rounded-full" asChild>
+                        <a href="https://klingai.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          Try Kling
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Globe className="w-4 h-4 text-primary" />
+                        Google Flow Studio
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Create/extend clips, maintain continuity with camera movements
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src={googleFlowDemo} alt="Google Flow Studio" className="h-auto w-full" />
+                      </div>
+                      <Button variant="outline" size="sm" className="rounded-full" asChild>
+                        <a href="https://labs.google/fx/tools/flow" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          Flow Studio
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <FileText className="w-4 h-4 text-primary" />
+                        Notating Images
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Add arrows/boxes/notes on frames for motion paths and timing guidance. Input an image you made into
+                        ChatGPT and ask it to annotate it, or open it in PowerPoint or another visual editor.
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src={notatingImagesDemo} alt="Image annotation demo" className="h-auto w-full" />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Sparkles className="w-4 h-4 text-primary" />
+                        Midjourney Moodboards
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Build reference boards and apply consistent vibes using --p or Personalization toggle
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src={midjourneyMoodboard} alt="Midjourney moodboard interface" className="h-auto w-full" />
+                      </div>
+                      <Button variant="outline" size="sm" className="rounded-full" asChild>
+                        <a
+                          href="https://docs.midjourney.com/hc/en-us/articles/39193335040013-Moodboards"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          Docs
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </Button>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Users className="w-4 h-4 text-primary" />
+                        Wan-Animate
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Animate characters from single images using performance video (motion + lip-sync)
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src="/lovable-uploads/636289ec-53a6-4fce-adb6-e428a1784b2c.png" alt="Character animation example" className="h-auto w-full" />
+                      </div>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" className="rounded-full" asChild>
+                          <a href="https://humanaigc.github.io/wan-animate/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            Project
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" className="rounded-full" asChild>
+                          <a href="https://github.com/Wan-Video/Wan2.2" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            GitHub
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Play className="w-4 h-4 text-primary" />
+                        Runway Aleph & Act Two
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Runway's latest video generation models for high-quality, consistent video content
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src="/lovable-uploads/7f9da2b4-5566-48c4-b753-191e30a1b0bb.png" alt="Runway Aleph and Act Two" className="h-auto w-full" />
+                      </div>
+                      <div className="space-y-2">
+                        <div>
+                          <h4 className="text-sm font-medium text-foreground">Aleph</h4>
+                          <p className="text-xs text-muted-foreground">Advanced video generation with improved consistency and quality</p>
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-medium text-foreground">Act Two</h4>
+                          <p className="text-xs text-muted-foreground">Character-driven video generation with expressive facial animations</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" className="rounded-full" asChild>
+                          <a href="https://runwayml.com/research/introducing-runway-aleph" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            Aleph
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" className="rounded-full" asChild>
+                          <a href="https://runwayml.com/research/introducing-act-two" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            Act Two
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Volume2 className="w-4 h-4 text-primary" />
+                        Audio Generation
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">AI tools for generating music and voice content</p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src="/lovable-uploads/9c5cdc04-f670-401d-94e7-f67f508166d0.png" alt="Audio generation tools" className="h-auto w-full" />
+                      </div>
+                      <div className="space-y-2">
+                        <div>
+                          <h4 className="text-sm font-medium text-foreground">Suno / Udio (music)</h4>
+                          <p className="text-xs text-muted-foreground">Generate background music quickly; be specific or vibe-based</p>
+                        </div>
+                        <div>
+                          <h4 className="text-sm font-medium text-foreground">ElevenLabs (voice)</h4>
+                          <p className="text-xs text-muted-foreground">High-quality AI voices for narration and character dialogue</p>
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" className="rounded-full" asChild>
+                          <a href="https://suno.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            Suno
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </Button>
+                        <Button variant="outline" size="sm" className="rounded-full" asChild>
+                          <a href="https://elevenlabs.io/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                            ElevenLabs
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border border-border/30 bg-card/40">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="flex items-center gap-2 text-lg">
+                        <Users className="w-4 h-4 text-primary" />
+                        Staying Caught Up
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-3">
+                      <p className="text-sm text-muted-foreground">
+                        Follow AI video communities: r/aivideo, Runway's Discord, and AI video Twitter for latest releases
+                      </p>
+                      <div className="overflow-hidden rounded-lg">
+                        <img src="/lovable-uploads/a26db62a-ad69-4847-8c6e-d829371b9ce7.png" alt="r/aivideo community" className="h-auto w-full" />
+                      </div>
+                      <Button variant="outline" size="sm" className="rounded-full" asChild>
+                        <a href="https://www.reddit.com/r/aivideo/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          r/aivideo
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      </Button>
+
+
+
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-10 space-y-16">
+                <div className="space-y-4">
+                  <h2 className="text-4xl font-light text-foreground">AI Tool Chaining</h2>
+                  <p className="text-lg text-ink-muted max-w-4xl">
+                    Combining multiple AI tools and connecting their outputs to create more sophisticated results than any single tool could achieve alone.
+                  </p>
+                </div>
+
+                <div className="mx-auto max-w-5xl space-y-12">
+                  <div className="overflow-hidden rounded-3xl border border-border/40 bg-card shadow-xl">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/mMiNiRBKiDs?si=VFTNqX2hyKykfuKD"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      className="aspect-video"
+                    />
+                  </div>
+
+                  <Card className="border border-border/40 bg-background/80 backdrop-blur">
+                    <CardContent className="space-y-6 p-8">
+                      <h3 className="text-2xl font-medium text-foreground text-center">Example workflow for this video</h3>
+                      <div className="flex flex-wrap items-center justify-center gap-4">
+                        {["ChatGPT", "Midjourney", "wan 2.2 + Veo", "Udio", "Filmora Editor"].map((tool, index, array) => (
+                          <div key={tool} className="flex items-center gap-4 text-sm font-medium">
+                            <span className="rounded-full border border-primary/30 bg-primary/10 px-6 py-3 text-primary">
+                              {tool}
+                            </span>
+                            {index < array.length - 1 && <span className="text-muted-foreground text-xl">→</span>}
+                          </div>
+                        ))}
+                      </div>
+                      <p className="text-center text-muted-foreground leading-relaxed">
+                        Used ChatGPT for prompts and planning → Midjourney for images and upscaling → wan 2.2 + Veo for animating + sound effects → Udio for music → edited with Filmora Editor.
+                      </p>
+
+                    </CardContent>
+                  </Card>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+
               <CardContent className="p-10 space-y-16">
                 <div className="space-y-4">
                   <h2 className="text-4xl font-light text-foreground">AI Tool Chaining</h2>
@@ -542,6 +910,7 @@ const Week5 = () => {
 
           <section>
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+
               <CardContent className="p-10 space-y-12">
                 <div className="space-y-4">
                   <h2 className="text-4xl font-light text-foreground">Nano Banana for Editing Images</h2>
@@ -586,6 +955,25 @@ const Week5 = () => {
                       <div className="absolute left-4 top-4 rounded-full bg-primary px-3 py-1 text-sm font-medium text-primary-foreground">
                         Original
                       </div>
+
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="group relative">
+                      <img
+                        src="/lovable-uploads/5418daa5-2d3f-4509-b0d8-fc94a7e229c6.png"
+                        alt="Edited dog photo"
+                        className="w-full rounded-2xl border border-border/50 shadow-lg transition-all duration-300 group-hover:shadow-xl"
+                      />
+                      <div className="absolute left-4 top-4 rounded-full bg-accent px-3 py-1 text-sm font-medium text-accent-foreground">
+                        Edited
+                      </div>
+                    </div>
+                    <div className="rounded-xl border border-border/30 bg-muted/50 p-4">
+                      <code className="text-sm font-mono text-foreground">"turn towards his head a bit more"</code>
+                    </div>
+                  </div>
+
                     </div>
                   </div>
                   <div className="space-y-4">
@@ -990,12 +1378,16 @@ const Week5 = () => {
                       </Button>
                     </CardContent>
                   </Card>
+
                 </div>
               </CardContent>
             </Card>
           </section>
 
           <section>
+
+            <Card className="task-card-accent">
+
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
               <CardContent className="p-10 space-y-16">
                 <div className="space-y-4">
@@ -1147,6 +1539,9 @@ const Week5 = () => {
 
     </WeekLayout>
 
+
+    </WeekLayout>
+
         </div>
       </main>
 
@@ -1180,6 +1575,7 @@ const Week5 = () => {
         </div>
       </footer>
     </div>
+
 
   );
 };

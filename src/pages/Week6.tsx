@@ -1,8 +1,10 @@
+import WeekLayout from "@/components/layout/WeekLayout";
 
 import WeekLayout from "@/components/layout/WeekLayout";
 
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+
 
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,8 +12,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Atom,
   Binary,
+
   ChevronLeft,
   ChevronRight,
+
   CircuitBoard,
   ExternalLink,
   Film,
@@ -25,7 +29,9 @@ const Week6 = () => {
   const weekNumber = 6;
   const title = "Week 6: Vibecoding Artifacts";
   const dueDate = "Sun Oct 5, 11:59 PM";
-
+  return (
+    <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
+      <section className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
   return (
     <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
       <section className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
@@ -81,6 +87,7 @@ const Week6 = () => {
           </section>
 
           <section className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+
 
             <Card className="rounded-3xl border border-white/40 bg-card/80 shadow-lg shadow-primary/10 backdrop-blur">
               <CardContent className="p-8 space-y-5">
@@ -259,6 +266,9 @@ const Week6 = () => {
               </CardContent>
             </Card>
           </section>
+
+
+    </WeekLayout>
 
 
     </WeekLayout>

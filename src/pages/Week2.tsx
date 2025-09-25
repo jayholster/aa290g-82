@@ -1,8 +1,12 @@
 
 import WeekLayout from "@/components/layout/WeekLayout";
 
+
+import WeekLayout from "@/components/layout/WeekLayout";
+
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+
 
 import ReasoningModelsComparison from "@/components/ReasoningModelsComparison";
 import ShowdownPrompts from "@/components/ShowdownPrompts";
@@ -16,6 +20,10 @@ const Week2 = () => {
   const title = "Week 2: Text-Based AI Models";
   const dueDate = "Sun Sep 7, 11:59 PM";
   return (
+
+    <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
+      <section>
+
 
     <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
       <section>
@@ -69,6 +77,7 @@ const Week2 = () => {
           </section>
 
           <section>
+
 
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
               <CardContent className="p-0">
@@ -157,6 +166,41 @@ const Week2 = () => {
                     <ShowdownPrompts />
                   </CardContent>
                 </Card>
+
+                <Card className="task-card-accent">
+                  <CardContent className="p-8 space-y-6">
+                    <h3 className="text-2xl font-medium text-foreground">Data Analysis Prompt</h3>
+                    <div className="rounded-2xl border border-border/40 bg-muted/40 p-6">
+                      <p className="text-muted-foreground leading-relaxed mb-4">
+                        Here's a dataset from a class activity where 6 groups ranked responses from ChatGPT Instant, Claude,
+                        Gemini 2.5, and ChatGPT Extension across multiple prompts. Analyze it by:
+                      </p>
+                      <ul className="space-y-2 text-muted-foreground">
+                        <li>• Calculating how often each tool placed 1st, 2nd, 3rd, or 4th overall</li>
+                        <li>• Creating a summary table that shows average rank per tool</li>
+                        <li>• Identifying which prompts had the most disagreement across groups (highest variance in rankings)</li>
+                        <li>
+                          • Giving a short narrative on patterns: e.g., did one tool win more in science prompts vs analogy prompts?
+                        </li>
+                        <li>• Visualizing the results (bar charts for average rank, heatmap for tool performance across prompts)</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-10 space-y-10">
+                <div className="text-center space-y-4">
+                  <h2 className="text-4xl font-light text-foreground">Extended Tools</h2>
+                  <p className="text-lg text-ink-muted">
+                    Explore advanced reasoning capabilities for specialized tasks.
+                  </p>
+                </div>
+
 
 
                 <Card className="task-card-accent">
@@ -287,6 +331,9 @@ const Week2 = () => {
 
     </WeekLayout>
 
+
+    </WeekLayout>
+
         </div>
       </main>
 
@@ -320,6 +367,7 @@ const Week2 = () => {
         </div>
       </footer>
     </div>
+
 
   );
 };

@@ -1,13 +1,19 @@
 
 import WeekLayout from "@/components/layout/WeekLayout";
+
+
+import WeekLayout from "@/components/layout/WeekLayout";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+
 import WorkshopStations from "@/components/WorkshopStations";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ExternalLink, FileText } from "lucide-react";
+
 import { ChevronLeft, ChevronRight, ExternalLink, FileText } from "lucide-react";
+
 
 
 const Week3 = () => {
@@ -15,6 +21,24 @@ const Week3 = () => {
   const title = "Week 3: AI Ethics & Bias";
   const dueDate = "Sun Sep 14, 11:59 PM";
   return (
+
+    <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
+      <section>
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-10 space-y-6">
+                <div className="space-y-4">
+                  <h2 className="text-4xl font-light text-foreground">AI Ethics & Bias</h2>
+                  <p className="text-lg text-ink-muted max-w-4xl">
+                    Today we'll explore the broader implications of AI beyond just functionality. We'll examine two critical
+                    dimensions: <strong className="text-foreground">environmental impact</strong> (carbon emissions and water usage)
+                    and <strong className="text-foreground">algorithmic bias</strong> (problems in training data and outputs).
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+
 
     <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
       <section>
@@ -83,6 +107,7 @@ const Week3 = () => {
             </Card>
           </section>
 
+
           <section>
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
               <CardContent className="p-0">
@@ -102,12 +127,16 @@ const Week3 = () => {
                   <p className="text-lg text-muted-foreground">Reflect on the following questions:</p>
                 </div>
 
+                <div className="task-grid lg:grid-cols-3">
+                  <Card className="task-card">
+
 
                 <div className="task-grid lg:grid-cols-3">
                   <Card className="task-card">
 
                 <div className="grid gap-6 lg:grid-cols-3">
                   <Card className="border border-border/60 bg-background/90 backdrop-blur">
+
 
                     <CardContent className="space-y-3 p-6">
                       <h4 className="text-lg font-semibold text-foreground">Scale & trade-offs:</h4>
@@ -120,7 +149,11 @@ const Week3 = () => {
 
                   <Card className="task-card">
 
+
+                  <Card className="task-card">
+
                   <Card className="border border-border/60 bg-background/90 backdrop-blur">
+
 
                     <CardContent className="space-y-3 p-6">
                       <h4 className="text-lg font-semibold text-foreground">Attachment & continuity:</h4>
@@ -131,6 +164,9 @@ const Week3 = () => {
                       </p>
                     </CardContent>
                   </Card>
+
+                  <Card className="task-card">
+
 
                   <Card className="task-card">
 
@@ -145,6 +181,8 @@ const Week3 = () => {
                     </CardContent>
                   </Card>
                 </div>
+
+                <Card className="task-card-accent">
 
 
                 <Card className="task-card-accent">
@@ -205,6 +243,7 @@ const Week3 = () => {
     </WeekLayout>
 
 
+
           <section>
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
               <CardHeader className="text-center">
@@ -262,6 +301,7 @@ const Week3 = () => {
         </div>
       </footer>
     </div>
+
 
   );
 };

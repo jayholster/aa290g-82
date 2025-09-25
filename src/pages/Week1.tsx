@@ -2,8 +2,12 @@ import { useState } from "react";
 
 import WeekLayout from "@/components/layout/WeekLayout";
 
+
+import WeekLayout from "@/components/layout/WeekLayout";
+
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+
 
 import CourseTimeline from "@/components/CourseTimeline";
 import TaskChecklist from "@/components/TaskChecklist";
@@ -99,6 +103,10 @@ const Week1 = () => {
                         text, image, music, video—portfolio-ready artifacts
                       </p>
                     </div>
+
+                  </div>
+                  <div className="task-card flex items-start gap-3 p-4">
+
                   </div>
                   <div className="task-card flex items-start gap-3 p-4">
                     <CheckCircle2 className="w-5 h-5 text-accent mt-0.5" />
@@ -175,19 +183,29 @@ const Week1 = () => {
                     </div>
                   </div>
                   <div className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/80 p-4">
+
                     <CheckCircle2 className="w-5 h-5 text-accent mt-0.5" />
                     <div>
                       <h3 className="font-medium text-ink">Learn by doing</h3>
                       <p className="text-sm text-ink-muted">weekly mini-tasks + one bigger project</p>
                     </div>
                   </div>
+
+                  <div className="task-card flex items-start gap-3 p-4">
+
                   <div className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/80 p-4">
+
                     <Users className="w-5 h-5 text-warn mt-0.5" />
                     <div>
                       <h3 className="font-medium text-ink">Compare/contrast tools</h3>
                       <p className="text-sm text-ink-muted">strengths, limits, trade-offs</p>
                     </div>
                   </div>
+
+                  <div className="task-card flex items-start gap-3 p-4">
+                    <MessageCircle className="w-5 h-5 text-primary mt-0.5" />
+                    <div>
+
                   <div className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/80 p-4">
                     <MessageCircle className="w-5 h-5 text-primary mt-0.5" />
                     <div>
@@ -216,8 +234,13 @@ const Week1 = () => {
                   <div className="task-grid">
                     <div className="task-card flex items-start gap-3 p-4">
 
+
+                  <div className="task-grid">
+                    <div className="task-card flex items-start gap-3 p-4">
+
                   <div className="space-y-4">
                     <div className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/80 p-4">
+
 
                       <Calendar className="w-5 h-5 text-primary mt-0.5" />
                       <div>
@@ -228,7 +251,11 @@ const Week1 = () => {
 
                     <div className="task-card flex items-start gap-3 p-4">
 
+
+                    <div className="task-card flex items-start gap-3 p-4">
+
                     <div className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/80 p-4">
+
 
                       <Users className="w-5 h-5 text-accent mt-0.5" />
                       <div>
@@ -239,7 +266,11 @@ const Week1 = () => {
 
                     <div className="task-card flex items-start gap-3 p-4">
 
+
+                    <div className="task-card flex items-start gap-3 p-4">
+
                     <div className="flex items-start gap-3 rounded-2xl border border-border/50 bg-background/80 p-4">
+
 
                       <Clock className="w-5 h-5 text-warn mt-0.5" />
                       <div>
@@ -247,6 +278,7 @@ const Week1 = () => {
                         <p className="text-sm text-ink-muted">@ 11:59 PM (Canvas)</p>
                       </div>
                     </div>
+
                   </div>
                 </CardContent>
               </Card>
@@ -275,6 +307,36 @@ const Week1 = () => {
                   </div>
                 </CardContent>
               </Card>
+
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+                <CardContent className="p-8 space-y-4">
+                  <h3 className="text-2xl font-semibold text-ink">Quick Links</h3>
+                  <div className="grid gap-3">
+                    <Button variant="outline" size="sm" className="justify-start rounded-2xl" asChild>
+                      <a href="#calendar" className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        Full Course Calendar
+                      </a>
+                    </Button>
+                    <Button variant="outline" size="sm" className="justify-start rounded-2xl" asChild>
+                      <a
+                        href="https://psu.instructure.com/courses/2421561"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Canvas Course Page
+                      </a>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
             </div>
           </section>
 
@@ -436,6 +498,19 @@ const Week1 = () => {
                               Option A
                             </Badge>
                             <h4 className="font-semibold text-ink">Two Truths and a Lie</h4>
+
+                          </div>
+                          <div className="space-y-3 text-sm text-ink-muted">
+                            <p>
+                              <strong>Prompt (paste + fill):</strong>
+                            </p>
+                            <div className="space-y-2 rounded-2xl border-l-4 border-primary bg-muted/50 p-4">
+                              <p>Create a clean poster titled "Two Truths & a Lie."</p>
+                              <p>Three big caption boxes labeled A, B, C with simple icons.</p>
+                              <p>A: [SHORT TRUTH HERE] B: [SHORT TRUTH HERE] C: [SHORT LIE HERE]</p>
+                              <p>High contrast, large text, no emojis/watermarks.</p>
+                              <p>Randomly remix statements with letter names. Do not reveal which is the lie.</p>
+
                           </div>
                           <div className="space-y-3 text-sm text-ink-muted">
                             <p>
@@ -532,10 +607,178 @@ const Week1 = () => {
                               <p>
                                 Export to <strong>Lovable.dev</strong> for easy hosting. (Use VS Code + Vite if you want to go deeper.)
                               </p>
+
                             </div>
                           </div>
                         </CardContent>
                       </Card>
+
+
+                      <Card className="border border-border/60 bg-background/90 backdrop-blur">
+                        <CardContent className="p-6 space-y-4">
+                          <div className="flex items-center gap-3">
+                            <Badge variant="outline" className="bg-secondary text-secondary-foreground">
+                              Option B
+                            </Badge>
+                            <h4 className="font-semibold text-ink">About Me</h4>
+                          </div>
+                          <div className="space-y-3 text-sm text-ink-muted">
+                            <p>
+                              <strong>Prompt (paste + fill):</strong>
+                            </p>
+                            <div className="space-y-2 rounded-2xl border-l-4 border-secondary bg-muted/50 p-4">
+                              <p>Create a clean poster titled "About Me."</p>
+                              <p>Big stylized avatar/character representing me (no photo),</p>
+                              <p>one headline "Hi, I'm [First name]" and three micro-tags: [tag1], [tag2], [tag3].</p>
+                              <p>High contrast, large text, no emojis/watermarks.</p>
+                            </div>
+                          </div>
+                          <div>
+                            <Button variant="outline" size="sm" className="rounded-2xl" asChild>
+                              <a
+                                href="https://chat.openai.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2"
+                              >
+                                <ExternalLink className="w-3 h-3" />
+                                Open ChatGPT
+                              </a>
+                            </Button>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground font-semibold">
+                        2
+                      </div>
+                      <h3 className="text-xl font-medium text-ink">Turn it into a website</h3>
+                    </div>
+
+                    <div className="space-y-4">
+                      <p className="text-sm text-ink-muted italic">Example result:</p>
+                      <Button variant="outline" size="sm" className="rounded-2xl" asChild>
+                        <a
+                          href="https://visual-detailer-web.lovable.app"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          View Example Website
+                        </a>
+                      </Button>
+                    </div>
+
+                    <div className="grid gap-6 lg:grid-cols-2">
+                      <Card className="border border-border/60 bg-background/90 backdrop-blur">
+                        <CardContent className="p-6 space-y-4">
+                          <div className="flex items-center gap-3">
+                            <Badge variant="outline" className="bg-primary text-primary-foreground">
+                              Option A
+                            </Badge>
+                            <h4 className="font-semibold text-ink">ChatGPT (code)</h4>
+                          </div>
+                          <div className="space-y-4 text-sm text-ink-muted">
+                            <div>
+                              <p>
+                                Paste your poster to ChatGPT (or describe it). Ask for HTML/CSS using Tailwind or inline styling for
+                                a responsive one-page site.
+                              </p>
+                            </div>
+                            <div>
+                              <p>
+                                Export to <strong>Lovable.dev</strong> for easy hosting. (Use VS Code + Vite if you want to go deeper.)
+                              </p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      <Card className="border border-border/60 bg-background/90 backdrop-blur">
+                        <CardContent className="p-6 space-y-4">
+                          <div className="flex items-center gap-3">
+                            <Badge variant="outline" className="bg-secondary text-secondary-foreground">
+                              Option B
+                            </Badge>
+                            <h4 className="font-semibold text-ink">Claude or Gemini</h4>
+                          </div>
+                          <div className="space-y-4 text-sm text-ink-muted">
+                            <div>
+                              <p>
+                                Upload your poster and request a mobile-friendly landing page. Emphasize large typography, accessible
+                                contrast, and a button linking to Canvas.
+                              </p>
+                            </div>
+                            <div>
+                              <p>
+                                Copy the HTML/CSS output into <strong>Lovable.dev</strong> or a simple GitHub Pages site.
+                              </p>
+                            </div>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
+
+                    <div className="rounded-2xl border border-border/50 bg-background/80 p-6">
+                      <div className="flex items-center gap-3 text-sm text-ink-muted">
+                        <Video className="w-4 h-4 text-primary" />
+                        <span>Document your process for Canvas submission.</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </section>
+
+          <section id="task1">
+            <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
+              <CardContent className="p-8 space-y-8">
+                <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                  <h3 className="text-xl font-semibold text-ink">
+                    Task 1: Set up ALL accounts & capture login screenshots
+                  </h3>
+                  <Badge variant="warn" className="flex items-center gap-2 rounded-full px-4 py-1">
+                    <Clock className="w-4 h-4" />
+                    Due Sun Aug 31, 11:59 PM
+                  </Badge>
+                </div>
+
+                <div className="space-y-4">
+                  {taskItems.map((item) => (
+                    <Card key={item.name} className="border border-border/60 bg-background/80 backdrop-blur">
+                      <CardContent className="p-5">
+                        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                          <div className="flex-1">
+                            <div className="flex items-center gap-2 mb-1">
+                              <CheckCircle2 className="w-4 h-4 text-muted-foreground" />
+                              <span className="font-semibold text-ink">{item.name}</span>
+                            </div>
+                            <p className="text-sm text-ink-muted">{item.description}</p>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="rounded-2xl"
+                              onClick={() => copyUrl(item.url)}
+                            >
+                              <Copy className="w-3 h-3" />
+                              {copiedUrl === item.url ? "Copied!" : "Copy URL"}
+                            </Button>
+                            <Button variant="accent" size="sm" className="rounded-2xl" asChild>
+                              <a href={item.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                <ExternalLink className="w-3 h-3" />
+                                Visit
+                              </a>
+                            </Button>
+                          </div>
+
 
                       <Card className="border border-border/60 bg-background/90 backdrop-blur">
                         <CardContent className="p-6 space-y-4">
@@ -670,6 +913,7 @@ const Week1 = () => {
                               </a>
                             </Button>
                           </div>
+
                         </div>
                       </CardContent>
                     </Card>
@@ -720,6 +964,9 @@ const Week1 = () => {
 
     </WeekLayout>
 
+
+    </WeekLayout>
+
         </div>
       </main>
 
@@ -742,6 +989,7 @@ const Week1 = () => {
         </div>
       </footer>
     </div>
+
 
   );
 };
