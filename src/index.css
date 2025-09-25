@@ -163,4 +163,22 @@ All colors MUST be HSL.
   .glass-panel {
     @apply bg-white/75 backdrop-blur-lg border border-white/60 shadow-[0_20px_45px_-25px_rgba(4,30,66,0.5)];
   }
+
+
+  .module-grid {
+    @apply grid gap-6 lg:grid-cols-2;
+  }
+
+  .task-grid {
+    @apply grid gap-4 md:grid-cols-2;
+  }
+
+  .task-card {
+    @apply rounded-2xl border border-white/70 bg-white/90 p-6 shadow-[0_24px_55px_-32px_rgba(3,27,63,0.55)] backdrop-blur;
+  }
+
+  .task-card-accent {
+    @apply rounded-3xl border border-primary/30 bg-primary/10 p-8 shadow-[0_28px_60px_-30px_rgba(3,38,101,0.45)];
+  }
+
 }

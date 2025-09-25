@@ -1,5 +1,9 @@
+
+import WeekLayout from "@/components/layout/WeekLayout";
+
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
+
 import ReasoningModelsComparison from "@/components/ReasoningModelsComparison";
 import ShowdownPrompts from "@/components/ShowdownPrompts";
 import { Button } from "@/components/ui/button";
@@ -11,10 +15,11 @@ const Week2 = () => {
   const weekNumber = 2;
   const title = "Week 2: Text-Based AI Models";
   const dueDate = "Sun Sep 7, 11:59 PM";
-  const prevWeek = weekNumber > 1 ? weekNumber - 1 : null;
-  const nextWeek = weekNumber < 15 ? weekNumber + 1 : null;
-
   return (
+
+    <WeekLayout weekNumber={weekNumber} title={title} dueDate={dueDate}>
+      <section>
+
     <div className="min-h-screen bg-background">
       <Header title={title} subtitle="AA290G: Creating & Learning with AI" dueDate={dueDate} />
 
@@ -64,6 +69,7 @@ const Week2 = () => {
           </section>
 
           <section>
+
             <Card className="rounded-3xl border border-border/60 bg-card/70 backdrop-blur">
               <CardContent className="p-0">
                 <ReasoningModelsComparison />
@@ -152,7 +158,11 @@ const Week2 = () => {
                   </CardContent>
                 </Card>
 
+
+                <Card className="task-card-accent">
+
                 <Card className="border border-border/60 bg-background/90 backdrop-blur">
+
                   <CardContent className="p-8 space-y-6">
                     <h3 className="text-2xl font-medium text-foreground">Data Analysis Prompt</h3>
                     <div className="rounded-2xl border border-border/40 bg-muted/40 p-6">
@@ -274,6 +284,9 @@ const Week2 = () => {
               </CardContent>
             </Card>
           </section>
+
+    </WeekLayout>
+
         </div>
       </main>
 
@@ -307,6 +320,7 @@ const Week2 = () => {
         </div>
       </footer>
     </div>
+
   );
 };
 
