@@ -15,37 +15,51 @@ const Home = () => {
   const weeks = Array.from({ length: 15 }, (_, i) => i + 1);
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="bg-primary text-primary-foreground relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/90"></div>
-        <div className="relative max-w-4xl mx-auto px-6 py-20 text-center">
-          <div className="space-y-6">
-            <div className="space-y-3">
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-                Creating & Learning with AI
-              </h1>
-              <p className="text-xl text-primary-foreground/80 font-medium">
-                AA290G • Fall 2025
-              </p>
+    <div className="relative min-h-screen overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 left-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute top-1/3 right-12 h-64 w-64 rounded-full bg-accent/10 blur-3xl" />
+      </div>
+
+      <header className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#041E42] via-[#0B2C6F] to-[#003865]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.18),_transparent_65%)]" />
+        <div className="absolute -top-36 right-10 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute -bottom-24 left-10 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+
+        <div className="relative max-w-6xl mx-auto px-6 py-24">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_auto] items-center">
+            <div className="space-y-8 text-primary-foreground">
+              <div className="space-y-4">
+                <h1 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight text-primary-foreground">
+                  Creating & Learning with AI
+                </h1>
+                <p className="text-xl font-medium text-primary-foreground/85">
+                  AA290G • Fall 2025
+                </p>
+              </div>
+
+              <div className="glass-panel inline-flex flex-col items-start gap-1 rounded-2xl px-6 py-5 text-base text-primary-foreground/90">
+                <span>Wed 2:30–3:45 • Borland 113 • Dr. Jacob Holster</span>
+              </div>
             </div>
-            
-            <div className="bg-white/5 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/10 inline-block">
-              <p className="text-primary-foreground/90">
-                Wed 2:30–3:45 • Borland 113 • Dr. Jacob Holster
-              </p>
+
+            <div className="hidden lg:flex flex-col items-center justify-center">
+              <div className="h-40 w-40 rounded-3xl border border-white/30 bg-white/10 backdrop-blur-2xl" />
             </div>
           </div>
         </div>
       </header>
 
-      <div className="max-w-6xl mx-auto px-6 py-12 space-y-16">
-        
+      <div className="relative max-w-6xl mx-auto px-6 py-16 space-y-20">
+        <div className="absolute inset-x-0 top-32 -z-10 mx-auto h-[600px] max-w-5xl rounded-[48px] bg-white/60 blur-3xl" />
+
         {/* Course Description */}
         <section>
-          <Card className="border-primary/20 bg-primary/5">
-            <CardContent className="p-8">
-              <h2 className="text-2xl font-semibold text-ink mb-6">About This Course</h2>
-              <div className="space-y-4 text-ink-muted">
+          <Card className="glass-panel border border-white/50">
+            <CardContent className="p-10">
+              <h2 className="text-3xl font-semibold text-ink mb-6">About This Course</h2>
+              <div className="space-y-5 text-lg text-ink-muted">
                 <p>A hands-on exploration of AI tools for creative and analytical work. Students will create portfolio-ready artifacts while learning to evaluate AI systems critically and ethically.</p>
                 <p>This course emphasizes practical experience with AI tools, thoughtful comparison of their capabilities and limitations, and reflection on broader implications for creativity, learning, and society.</p>
               </div>
@@ -54,38 +68,44 @@ const Home = () => {
         </section>
 
         {/* Quick Course Info */}
-        <section>
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <Card className="border border-border">
-              <CardContent className="p-6 text-center">
-                <Calendar className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold text-ink mb-2">Schedule</h3>
-                <p className="text-ink-muted text-sm">Wednesdays 2:30–3:45</p>
-                <p className="text-ink-muted text-sm">Hybrid 50/50</p>
+        <section className="space-y-10">
+          <div className="grid gap-8 md:grid-cols-3">
+            <Card className="glass-panel border border-white/60">
+              <CardContent className="p-8 text-center space-y-3">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/15 text-primary">
+                  <Calendar className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-ink">Schedule</h3>
+                <p className="text-sm text-ink-muted">Wednesdays 2:30–3:45</p>
+                <p className="text-sm text-ink-muted">Hybrid 50/50</p>
               </CardContent>
             </Card>
-            
-            <Card className="border border-border">
-              <CardContent className="p-6 text-center">
-                <Clock className="w-8 h-8 text-accent mx-auto mb-3" />
-                <h3 className="font-semibold text-ink mb-2">Deadlines</h3>
-                <p className="text-ink-muted text-sm">Weekly tasks due</p>
-                <p className="text-ink-muted text-sm">Sundays @ 11:59 PM</p>
+
+            <Card className="glass-panel border border-white/60">
+              <CardContent className="p-8 text-center space-y-3">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent/15 text-accent">
+                  <Clock className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-ink">Deadlines</h3>
+                <p className="text-sm text-ink-muted">Weekly tasks due</p>
+                <p className="text-sm text-ink-muted">Sundays @ 11:59 PM</p>
               </CardContent>
             </Card>
-            
-            <Card className="border border-border">
-              <CardContent className="p-6 text-center">
-                <BookOpen className="w-8 h-8 text-warn mx-auto mb-3" />
-                <h3 className="font-semibold text-ink mb-2">Materials</h3>
-                <p className="text-ink-muted text-sm">Canvas modules</p>
-                <p className="text-ink-muted text-sm">Weekly content</p>
+
+            <Card className="glass-panel border border-white/60">
+              <CardContent className="p-8 text-center space-y-3">
+                <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-warn/15 text-warn">
+                  <BookOpen className="w-7 h-7" />
+                </div>
+                <h3 className="text-xl font-semibold text-ink">Materials</h3>
+                <p className="text-sm text-ink-muted">Canvas modules</p>
+                <p className="text-sm text-ink-muted">Weekly content</p>
               </CardContent>
             </Card>
           </div>
 
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-4 flex-wrap">
+          <div className="glass-panel rounded-[28px] px-10 py-8">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <Button variant="outline" size="sm" asChild>
                 <a href="mailto:jbh6331@psu.edu" className="flex items-center gap-2">
                   <Mail className="w-4 h-4" />
@@ -115,10 +135,12 @@ const Home = () => {
         </section>
 
         {/* Weekly Modules */}
-        <section>
-          <h2 className="text-3xl font-bold text-ink mb-8 text-center">Course Modules</h2>
-          
-          <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <section className="space-y-6">
+          <div className="text-center">
+            <h2 className="text-3xl font-semibold text-ink">Course Modules</h2>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3 lg:grid-cols-4">
             {weeks.map((week) => {
               // Use actual course titles from timeline data
               const getWeekData = (weekNum: number) => {
@@ -145,18 +167,28 @@ const Home = () => {
               const weekData = getWeekData(week);
 
               return (
-                <Card key={week} className="border border-border hover:shadow-lg hover:scale-105 transition-all duration-300 overflow-hidden group">
+                <Card
+                  key={week}
+                  className="group overflow-hidden border border-white/60 bg-white/75 shadow-[0_24px_55px_-32px_rgba(4,30,66,0.65)] transition-transform duration-300 hover:-translate-y-1"
+                >
                   <CardContent className="p-0">
                     <div className="relative">
-                      <div className={`h-32 bg-gradient-to-br ${weekData.from} ${weekData.via} ${weekData.to} relative overflow-hidden`}>
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                        <div className="absolute bottom-3 left-3 text-white">
-                          <div className="text-2xl font-bold">Week {week}</div>
+                      <div
+                        className={`h-36 bg-gradient-to-br ${weekData.from} ${weekData.via} ${weekData.to} relative overflow-hidden`}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <div className="text-2xl font-semibold tracking-tight">Week {week}</div>
                           <div className="text-sm opacity-90">{weekData.title}</div>
                         </div>
                       </div>
-                      <div className="p-4">
-                        <Button variant="outline" size="sm" className="w-full group-hover:bg-primary group-hover:text-primary-foreground transition-colors" asChild>
+                      <div className="p-5">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="w-full justify-center group-hover:bg-primary group-hover:text-primary-foreground"
+                          asChild
+                        >
                           <Link to={`/week${week}`} className="flex items-center justify-center gap-2">
                             <FileText className="w-4 h-4" />
                             View Module

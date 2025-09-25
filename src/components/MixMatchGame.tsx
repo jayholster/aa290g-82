@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { CheckCircle2 } from "lucide-react";
 
 interface MatchItem {
   id: string;
@@ -60,7 +61,7 @@ export default function MixMatchGame() {
   useEffect(() => {
     const shuffled = [...gameItems].sort(() => Math.random() - 0.5);
     setShuffledItems(shuffled);
-    
+
     // Initialize empty slots for each match
     const initialDropped: DroppedItems = {};
     correctMatches.forEach((_, index) => {
@@ -68,6 +69,29 @@ export default function MixMatchGame() {
     });
     setDroppedItems(initialDropped);
   }, []);
+
+  const isMatchComplete = (matchIndex: number) => {
+    const matchId = `match-${matchIndex}`;
+    const dropped = droppedItems[matchId];
+    return dropped?.company && dropped?.impact && dropped?.response;
+  };
+
+  const isMatchCorrect = (matchIndex: number) => {
+    const matchId = `match-${matchIndex}`;
+    const dropped = droppedItems[matchId];
+    const correctMatch = correctMatches[matchIndex];
+
+    return (
+      dropped?.company === correctMatch.company &&
+      dropped?.impact === correctMatch.impact &&
+      dropped?.response === correctMatch.response
+    );
+  };
+
+  const isItemInCorrectPlace = (itemId: string, matchIndex: number, category: string) => {
+    const correctMatch = correctMatches[matchIndex];
+    return correctMatch[category as keyof typeof correctMatch] === itemId;
+  };
 
   const handleDragStart = (e: React.DragEvent, item: MatchItem) => {
     setDraggedItem(item);
@@ -77,6 +101,10 @@ export default function MixMatchGame() {
   const handleDrop = (e: React.DragEvent, matchIndex: number, category: string) => {
     e.preventDefault();
     if (!draggedItem || draggedItem.category !== category) return;
+    if (isMatchCorrect(matchIndex)) {
+      setDraggedItem(null);
+      return;
+    }
 
     // Remove item from its current position if it was already placed
     const newDroppedItems = { ...droppedItems };
@@ -101,27 +129,6 @@ export default function MixMatchGame() {
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault();
-  };
-
-  const isMatchComplete = (matchIndex: number) => {
-    const matchId = `match-${matchIndex}`;
-    const dropped = droppedItems[matchId];
-    return dropped?.company && dropped?.impact && dropped?.response;
-  };
-
-  const isMatchCorrect = (matchIndex: number) => {
-    const matchId = `match-${matchIndex}`;
-    const dropped = droppedItems[matchId];
-    const correctMatch = correctMatches[matchIndex];
-    
-    return dropped?.company === correctMatch.company &&
-           dropped?.impact === correctMatch.impact &&
-           dropped?.response === correctMatch.response;
-  };
-
-  const isItemInCorrectPlace = (itemId: string, matchIndex: number, category: string) => {
-    const correctMatch = correctMatches[matchIndex];
-    return correctMatch[category as keyof typeof correctMatch] === itemId;
   };
 
   const getAllPlacedItems = () => {
@@ -169,84 +176,130 @@ export default function MixMatchGame() {
 
       {/* Match Slots */}
       <div className="space-y-6 mb-8">
-        {correctMatches.map((_, index) => (
-          <div key={index} className={`grid grid-cols-3 gap-4 p-6 rounded-2xl border-2 transition-all duration-300 ${
-            isMatchComplete(index) 
-              ? isMatchCorrect(index) 
-                ? 'bg-green-50 dark:bg-green-900/20 border-green-400' 
-                : 'bg-red-50 dark:bg-red-900/20 border-red-400'
-              : 'bg-white/50 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600'
-          }`}>
-            {/* Company Slot */}
-            <div
-              onDrop={(e) => handleDrop(e, index, 'company')}
-              onDragOver={handleDragOver}
-              className="min-h-[80px] p-4 border-2 border-dashed border-purple-300 dark:border-purple-600 rounded-xl flex items-center justify-center text-center bg-purple-50/50 dark:bg-purple-900/20"
-            >
-            {droppedItems[`match-${index}`]?.company ? (
-              <div
-                draggable
-                onDragStart={(e) => handleDragStart(e, gameItems.find(item => item.id === droppedItems[`match-${index}`]?.company)!)}
-                className={`p-2 rounded-lg font-medium cursor-grab active:cursor-grabbing ${
-                  isItemInCorrectPlace(droppedItems[`match-${index}`]?.company!, index, 'company') 
-                    ? 'bg-green-200 dark:bg-green-800 text-green-800 dark:text-green-200 animate-pulse' 
-                    : 'bg-purple-200 dark:bg-purple-800 text-purple-800 dark:text-purple-200'
-                }`}
-              >
-                {gameItems.find(item => item.id === droppedItems[`match-${index}`]?.company)?.text}
-              </div>
-              ) : (
-                <span className="text-purple-600 dark:text-purple-400 text-sm">Drop Company Here</span>
-              )}
-            </div>
+        {correctMatches.map((_, index) => {
+          const matchId = `match-${index}`;
+          const companyId = droppedItems[matchId]?.company;
+          const impactId = droppedItems[matchId]?.impact;
+          const responseId = droppedItems[matchId]?.response;
+          const matchComplete = isMatchComplete(index);
+          const matchLocked = isMatchCorrect(index);
 
-            {/* Impact Slot */}
-            <div
-              onDrop={(e) => handleDrop(e, index, 'impact')}
-              onDragOver={handleDragOver}
-              className="min-h-[80px] p-4 border-2 border-dashed border-red-300 dark:border-red-600 rounded-xl flex items-center justify-center text-center bg-red-50/50 dark:bg-red-900/20"
-            >
-            {droppedItems[`match-${index}`]?.impact ? (
-              <div
-                draggable
-                onDragStart={(e) => handleDragStart(e, gameItems.find(item => item.id === droppedItems[`match-${index}`]?.impact)!)}
-                className={`p-2 rounded-lg font-medium text-sm cursor-grab active:cursor-grabbing ${
-                  isItemInCorrectPlace(droppedItems[`match-${index}`]?.impact!, index, 'impact') 
-                    ? 'bg-green-200 dark:bg-green-800 text-green-800 dark:text-green-200 animate-pulse' 
-                    : 'bg-red-200 dark:bg-red-800 text-red-800 dark:text-red-200'
-                }`}
-              >
-                {gameItems.find(item => item.id === droppedItems[`match-${index}`]?.impact)?.text}
-              </div>
-              ) : (
-                <span className="text-red-600 dark:text-red-400 text-sm">Drop Impact Here</span>
-              )}
-            </div>
+          const rowStateClass = matchComplete
+            ? matchLocked
+              ? 'bg-green-50 dark:bg-green-900/20 border-green-400 shadow-[0_22px_45px_-28px_rgba(16,94,62,0.45)]'
+              : 'bg-red-50 dark:bg-red-900/20 border-red-400'
+            : 'bg-white/60 dark:bg-gray-800/50 border-gray-300 dark:border-gray-600';
 
-            {/* Response Slot */}
+          return (
             <div
-              onDrop={(e) => handleDrop(e, index, 'response')}
-              onDragOver={handleDragOver}
-              className="min-h-[80px] p-4 border-2 border-dashed border-green-300 dark:border-green-600 rounded-xl flex items-center justify-center text-center bg-green-50/50 dark:bg-green-900/20"
+              key={index}
+              className={`relative grid grid-cols-1 gap-4 rounded-2xl border-2 p-6 transition-all duration-300 md:grid-cols-3 ${rowStateClass}`}
             >
-            {droppedItems[`match-${index}`]?.response ? (
+              {matchLocked && (
+                <div className="absolute -top-3 right-4 flex items-center gap-1 rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white shadow-lg">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Locked
+                </div>
+              )}
+
+              {/* Company Slot */}
               <div
-                draggable
-                onDragStart={(e) => handleDragStart(e, gameItems.find(item => item.id === droppedItems[`match-${index}`]?.response)!)}
-                className={`p-2 rounded-lg font-medium text-sm cursor-grab active:cursor-grabbing ${
-                  isItemInCorrectPlace(droppedItems[`match-${index}`]?.response!, index, 'response') 
-                    ? 'bg-green-200 dark:bg-green-800 text-green-800 dark:text-green-200 animate-pulse' 
-                    : 'bg-green-200 dark:bg-green-800 text-green-800 dark:text-green-200'
+                onDrop={(e) => handleDrop(e, index, 'company')}
+                onDragOver={handleDragOver}
+                className={`flex min-h-[88px] flex-col items-center justify-center rounded-xl border-2 border-dashed bg-purple-50/70 text-center transition-colors dark:bg-purple-900/20 ${
+                  matchLocked
+                    ? 'cursor-not-allowed border-green-300/70 bg-green-100/80'
+                    : 'border-purple-300 dark:border-purple-600 hover:border-purple-400'
                 }`}
               >
-                {gameItems.find(item => item.id === droppedItems[`match-${index}`]?.response)?.text}
+                {companyId ? (
+                  <div
+                    draggable={!matchLocked}
+                    onDragStart={!matchLocked ? (e) => handleDragStart(e, gameItems.find((item) => item.id === companyId)!) : undefined}
+                    className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-all ${
+                      matchLocked ? 'cursor-default' : 'cursor-grab active:cursor-grabbing'
+                    } ${
+                      companyId && isItemInCorrectPlace(companyId, index, 'company')
+                        ? 'bg-green-200/90 text-green-900'
+                        : 'bg-purple-200/80 text-purple-900'
+                    }`}
+                  >
+                    {companyId && isItemInCorrectPlace(companyId, index, 'company') && (
+                      <CheckCircle2 className="h-4 w-4 text-green-700" />
+                    )}
+                    <span>{gameItems.find((item) => item.id === companyId)?.text}</span>
+                  </div>
+                ) : (
+                  <span className="text-xs font-medium text-purple-600 dark:text-purple-300">Drop Company Here</span>
+                )}
               </div>
-              ) : (
-                <span className="text-green-600 dark:text-green-400 text-sm">Drop Response Here</span>
-              )}
+
+              {/* Impact Slot */}
+              <div
+                onDrop={(e) => handleDrop(e, index, 'impact')}
+                onDragOver={handleDragOver}
+                className={`flex min-h-[88px] flex-col items-center justify-center rounded-xl border-2 border-dashed bg-red-50/70 text-center transition-colors dark:bg-red-900/20 ${
+                  matchLocked
+                    ? 'cursor-not-allowed border-green-300/70 bg-green-100/80'
+                    : 'border-red-300 dark:border-red-600 hover:border-red-400'
+                }`}
+              >
+                {impactId ? (
+                  <div
+                    draggable={!matchLocked}
+                    onDragStart={!matchLocked ? (e) => handleDragStart(e, gameItems.find((item) => item.id === impactId)!) : undefined}
+                    className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-all ${
+                      matchLocked ? 'cursor-default' : 'cursor-grab active:cursor-grabbing'
+                    } ${
+                      impactId && isItemInCorrectPlace(impactId, index, 'impact')
+                        ? 'bg-green-200/90 text-green-900'
+                        : 'bg-red-200/80 text-red-900'
+                    }`}
+                  >
+                    {impactId && isItemInCorrectPlace(impactId, index, 'impact') && (
+                      <CheckCircle2 className="h-4 w-4 text-green-700" />
+                    )}
+                    <span>{gameItems.find((item) => item.id === impactId)?.text}</span>
+                  </div>
+                ) : (
+                  <span className="text-xs font-medium text-red-600 dark:text-red-300">Drop Impact Here</span>
+                )}
+              </div>
+
+              {/* Response Slot */}
+              <div
+                onDrop={(e) => handleDrop(e, index, 'response')}
+                onDragOver={handleDragOver}
+                className={`flex min-h-[88px] flex-col items-center justify-center rounded-xl border-2 border-dashed bg-green-50/70 text-center transition-colors dark:bg-green-900/20 ${
+                  matchLocked
+                    ? 'cursor-not-allowed border-green-300/70 bg-green-100/80'
+                    : 'border-green-300 dark:border-green-600 hover:border-green-400'
+                }`}
+              >
+                {responseId ? (
+                  <div
+                    draggable={!matchLocked}
+                    onDragStart={!matchLocked ? (e) => handleDragStart(e, gameItems.find((item) => item.id === responseId)!) : undefined}
+                    className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium shadow-sm transition-all ${
+                      matchLocked ? 'cursor-default' : 'cursor-grab active:cursor-grabbing'
+                    } ${
+                      responseId && isItemInCorrectPlace(responseId, index, 'response')
+                        ? 'bg-green-300/90 text-green-900'
+                        : 'bg-green-200/80 text-green-900'
+                    }`}
+                  >
+                    {responseId && isItemInCorrectPlace(responseId, index, 'response') && (
+                      <CheckCircle2 className="h-4 w-4 text-green-700" />
+                    )}
+                    <span>{gameItems.find((item) => item.id === responseId)?.text}</span>
+                  </div>
+                ) : (
+                  <span className="text-xs font-medium text-green-600 dark:text-green-300">Drop Response Here</span>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Shuffled Items Pool */}

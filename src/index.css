@@ -9,42 +9,42 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Penn State Design System */
-    --background: 0 0% 99%;
-    --foreground: 218 100% 12%;
-    
-    --ink: 218 100% 12%;
-    --ink-muted: 218 15% 45%;
-    
-    --primary: 218 100% 16%;
-    --primary-foreground: 0 0% 100%;
-    
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 218 100% 12%;
-    
-    --accent: 218 100% 16%;
-    --accent-foreground: 0 0% 100%;
-    
-    --penn-blue: 218 100% 16%;
-    --penn-white: 0 0% 100%;
-    
-    --warn: 32 95% 37%;
+    --background: 216 45% 97%;
+    --foreground: 220 32% 12%;
+
+    --ink: 220 32% 12%;
+    --ink-muted: 220 18% 40%;
+
+    --primary: 218 76% 20%;
+    --primary-foreground: 210 33% 96%;
+
+    --secondary: 213 40% 94%;
+    --secondary-foreground: 220 30% 18%;
+
+    --accent: 215 82% 32%;
+    --accent-foreground: 210 33% 96%;
+
+    --penn-blue: 218 76% 20%;
+    --penn-white: 210 33% 98%;
+
+    --warn: 32 92% 45%;
     --warn-foreground: 0 0% 100%;
-    
-    --muted: 220 13% 91%;
-    --muted-foreground: 220 14% 29%;
-    
+
+    --muted: 220 27% 88%;
+    --muted-foreground: 220 16% 36%;
+
     --card: 0 0% 100%;
-    --card-foreground: 218 91% 8%;
-    
+    --card-foreground: 220 32% 12%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 218 91% 8%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 218 89% 31%;
+    --popover-foreground: 220 32% 12%;
+
+    --destructive: 0 82% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 218 32% 86%;
+    --input: 218 32% 86%;
+    --ring: 218 70% 38%;
     
     --radius: 0.75rem;
 
@@ -110,33 +110,38 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 0% 0%, hsla(215, 90%, 78%, 0.45), transparent 55%),
+      radial-gradient(circle at 80% -10%, hsla(225, 80%, 70%, 0.35), transparent 45%),
+      linear-gradient(180deg, hsla(210, 60%, 98%, 0.9), hsla(213, 50%, 96%, 0.85));
+    background-attachment: fixed;
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 
   /* Typography Scale - Apple/OpenAI inspired */
   h1 {
-    @apply text-3xl font-semibold tracking-tight text-white;
+    @apply text-3xl font-semibold tracking-tight text-ink;
   }
-  
+
   h2 {
-    @apply text-2xl font-semibold tracking-tight text-white;
+    @apply text-2xl font-semibold tracking-tight text-ink;
   }
-  
+
   h3 {
-    @apply text-xl font-semibold text-foreground;
+    @apply text-xl font-semibold text-ink;
   }
-  
+
   h4 {
-    @apply text-lg font-medium text-foreground;
+    @apply text-lg font-medium text-ink;
   }
-  
+
   h5 {
-    @apply text-base font-medium text-foreground;
+    @apply text-base font-medium text-ink;
   }
-  
+
   h6 {
-    @apply text-sm font-medium text-foreground;
+    @apply text-sm font-medium text-ink;
   }
 
   /* Clean paragraph styling */
@@ -147,5 +152,31 @@ All colors MUST be HSL.
   /* Remove default margins for better control */
   h1, h2, h3, h4, h5, h6, p {
     @apply m-0;
+  }
+}
+
+@layer components {
+  .penn-gradient {
+    @apply bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_60%)] bg-no-repeat;
+  }
+
+  .glass-panel {
+    @apply bg-white/75 backdrop-blur-lg border border-white/60 shadow-[0_20px_45px_-25px_rgba(4,30,66,0.5)];
+  }
+
+  .module-grid {
+    @apply grid gap-6 lg:grid-cols-2;
+  }
+
+  .task-grid {
+    @apply grid gap-4 md:grid-cols-2;
+  }
+
+  .task-card {
+    @apply rounded-2xl border border-white/70 bg-white/90 p-6 shadow-[0_24px_55px_-32px_rgba(3,27,63,0.55)] backdrop-blur;
+  }
+
+  .task-card-accent {
+    @apply rounded-3xl border border-primary/30 bg-primary/10 p-8 shadow-[0_28px_60px_-30px_rgba(3,38,101,0.45)];
   }
 }
