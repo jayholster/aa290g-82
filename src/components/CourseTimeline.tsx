@@ -122,55 +122,57 @@ const timelineData: TimelineItem[] = [
 
 export default function CourseTimeline() {
   return (
-    <div className="relative">
-      <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border"></div>
-      <div className="space-y-6">
-        {timelineData.map((item, index) => (
-          <div key={item.week} className="relative flex items-start gap-6">
-            <div className="flex-shrink-0 w-16 h-16 bg-primary text-primary-foreground rounded-full flex items-center justify-center font-semibold text-sm">
-              Wk{item.week}
-            </div>
-            <div className="min-h-16 flex-1 pb-4">
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-1">
-                    <span className="text-sm font-medium text-ink-muted">
-                      {item.date}
-                    </span>
-                    {item.canvasLink && (
-                      <a
-                        href={item.canvasLink}
-                        className="inline-flex items-center gap-1 text-xs text-accent hover:text-accent/80"
-                      >
-                        <ExternalLink className="w-3 h-3" />
-                        Canvas
-                      </a>
-                    )}
+    <div className="glass-panel border border-white/60 rounded-[32px] p-8">
+      <div className="relative pl-10">
+        <div className="absolute left-4 top-2 bottom-6 w-px bg-gradient-to-b from-primary/40 via-primary/20 to-transparent" />
+        <div className="space-y-8">
+          {timelineData.map((item) => (
+            <div key={item.week} className="relative flex flex-col gap-4 rounded-3xl border border-white/60 bg-white/70 px-6 py-5 shadow-[0_18px_45px_-28px_rgba(4,30,66,0.6)]">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/90 to-primary text-primary-foreground font-semibold tracking-tight">
+                    Wk{item.week}
                   </div>
-                  <h3 className="text-lg font-semibold text-ink mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-ink-muted">
-                    {item.task}
-                  </p>
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-sm font-medium text-ink-muted">
+                        {item.date}
+                      </span>
+                      {item.canvasLink && (
+                        <a
+                          href={item.canvasLink}
+                          className="inline-flex items-center gap-1 text-xs text-primary hover:text-primary/80"
+                        >
+                          <ExternalLink className="w-3 h-3" />
+                          Canvas
+                        </a>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-semibold text-ink">
+                      {item.title}
+                    </h3>
+                  </div>
                 </div>
                 <div className="flex items-center gap-2">
                   {item.points && (
-                    <Badge variant="default">
+                    <Badge variant="default" className="bg-primary/10 text-primary">
                       {item.points} pts
                     </Badge>
                   )}
                   {item.isSpecial && (
-                    <Badge variant="accent">
+                    <Badge variant="accent" className="bg-accent/15 text-accent">
                       <CalendarDays className="w-3 h-3 mr-1" />
                       In-Class
                     </Badge>
                   )}
                 </div>
               </div>
+              <p className="text-ink-muted text-sm">
+                {item.task}
+              </p>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
